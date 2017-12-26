@@ -1,9 +1,11 @@
 class ReadingsController < ApplicationController
   def index
-    binding.pry
+    @test =  {"quotation": "The secret of getting ahead is getting started."}
+    json_response(@quotes)
   end
 
   def create
-    binding.pry
+    @test =  {"quotation": "The secret of getting ahead is getting started."}
+    json_response(@quotes)
   end
 end
