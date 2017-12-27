@@ -1,11 +1,19 @@
 class ReadingsController < ApplicationController
   def index
-    @test =  {"quotation": "The secret of getting ahead is getting started."}
-    json_response(@quotes)
+    @readings =  Reading.all
+    json_response(@readings)
   end
 
   def create
-    @test =  {"quotation": "The secret of getting ahead is getting started."}
-    json_response(@quotes)
+    @reading = Reading.create!(reading_params)
+    json_response(@reading)
   end
+
+  private
+
+
+  def reading_params
+    params.permit(:temperature, :humidity)
+  end
+
 end
