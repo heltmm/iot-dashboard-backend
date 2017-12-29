@@ -5,7 +5,9 @@ class ReadingsController < ApplicationController
   end
 
   def create
+    binding.pry
     @reading = Reading.create!(reading_params)
+    ActionCable.server.broadcast 'readings'
     json_response(@reading)
   end
 
