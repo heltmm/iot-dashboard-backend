@@ -6,7 +6,8 @@ class ReadingsController < ApplicationController
 
   def create
     @reading = Reading.create!(reading_params)
-    ActionCable.server.broadcast 'readings'
+    @readings =  Reading.all
+    ActionCable.server.broadcast('readings', readings: @readings)
     json_response(@reading)
   end
 
