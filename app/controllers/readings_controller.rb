@@ -5,10 +5,9 @@ class ReadingsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @device = Device.find(:device_id)
-    @reading = Device.readings.create!(reading_params)
-    @readings =  Reading.all
+    @device = Device.find(params[:device_id])
+    @reading = @device.readings.create!(reading_params)
+    @readings =  @device.readings
     ActionCable.server.broadcast('readings', readings: @readings)
     json_response(@reading)
   end
