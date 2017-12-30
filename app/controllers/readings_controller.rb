@@ -1,4 +1,5 @@
 class ReadingsController < ApplicationController
+
   def index
     @readings =  Reading.all
     json_response(@readings)
