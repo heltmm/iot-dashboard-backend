@@ -5,7 +5,9 @@ class ReadingsController < ApplicationController
   end
 
   def create
-    @reading = Reading.create!(reading_params)
+    binding.pry
+    @device = Device.find(:device_id)
+    @reading = Device.readings.create!(reading_params)
     @readings =  Reading.all
     ActionCable.server.broadcast('readings', readings: @readings)
     json_response(@reading)
@@ -15,7 +17,7 @@ class ReadingsController < ApplicationController
 
 
   def reading_params
-    params.permit(:temperature, :humidity)
+    params.permit(:temperature, :humidity, :device_id)
   end
 
 end
