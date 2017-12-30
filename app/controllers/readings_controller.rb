@@ -11,7 +11,10 @@ class ReadingsController < ApplicationController
     ActionCable.server.broadcast('readings', readings: @readings)
     json_response(@reading)
   end
-
+  # to add to change date
+  # def as_json
+  #   super.merge('created_at' => self.created_at.strftime("%d %b %Y"))
+  # end
   private
 
 
