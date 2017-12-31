@@ -9,13 +9,10 @@ class ReadingsController < ApplicationController
     @device = Device.find(params[:device_id])
     @reading = @device.readings.create!(reading_params)
     @readings =  @device.readings
-    ActionCable.server.broadcast('readings', readings: @readings)
+    ActionCable.server.broadcast('readings', reading: @reading)
     json_response(@reading)
   end
-  # to add to change date
-  # def as_json
-  #   super.merge('created_at' => self.created_at.strftime("%d %b %Y"))
-  # end
+  
   private
 
 
