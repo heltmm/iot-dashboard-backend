@@ -8,11 +8,11 @@ class ReadingsController < ApplicationController
   end
 
   def create
-
+    # need error message if device doesn't exist
     @device = @client.devices.find(params[:device_id])
     @reading = @device.readings.create!(reading_params)
     @readings =  @device.readings
-    binding.pry
+
     ActionCable.server.broadcast('readings', reading: @reading)
     json_response(@reading)
   end
@@ -28,7 +28,7 @@ class ReadingsController < ApplicationController
     api_key = request.headers['HTTP_API_KEY']
     @client = Client.where(api_key: api_key).first if api_key
       unless @client
-      head status: :unauthorized
+        head status: :unauthorized
       return false
     end
   end
