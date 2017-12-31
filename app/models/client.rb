@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  has_many :devices
+
   validates_presence_of :api_key
   validates_uniqueness_of :api_key
 

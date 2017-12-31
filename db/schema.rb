@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20171231044314) do
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
