@@ -1,6 +1,6 @@
 class ReadingsController < ApplicationController
 
-  before_action :authenticate
+  before_action :authenticate, except: [:index]
 
   def index
     @readings =  Reading.all
@@ -21,7 +21,7 @@ class ReadingsController < ApplicationController
 
 
   def reading_params
-    params.permit(:temperature, :humidity, :device_id)
+    params.permit(:temperature, :humidity, :device_id, :id)
   end
 
   def authenticate
