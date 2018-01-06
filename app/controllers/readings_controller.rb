@@ -3,17 +3,18 @@ class ReadingsController < ApplicationController
   before_action :authenticate, except: [:index]
 
   def index
-    @readings =  Reading.all
+    @device = Device.find(params[:device_id])
+    @readings =  @device.readings
     json_response(@readings)
   end
 
   def create
+    binding.pry
     # need error message if device doesn't exist
     @device = @client.devices.find(params[:device_id])
     @reading = @device.readings.create!(reading_params)
-    @readings =  @device.readings
 
-    ActionCable.server.broadcast('readings', reading: @reading)
+    ActionCable.server.broadcast("device#{@device.id}-readings", reading: @reading)
     json_response(@reading)
   end
 

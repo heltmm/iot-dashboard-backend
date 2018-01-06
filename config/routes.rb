@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :devices
-  resources :readings
+  resources :devices do
+    resources :readings
+  end
+
 
   root :to => "devices#index"
 
