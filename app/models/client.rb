@@ -7,8 +7,13 @@ class Client < ApplicationRecord
   before_validation :set_api_key
 
   private
+  # working locally
+  # def set_api_key
+  #   self.api_key = ApiKey.generator
+  # end
 
+  # changed to work on heroku
   def set_api_key
-    self.api_key = ApiKey.generator
+    self.api_key = SecureRandom.base64.tr('+/=', 'Qrt')
   end
 end
