@@ -9,7 +9,6 @@ class ReadingsController < ApplicationController
   end
 
   def create
-    binding.pry
     # need error message if device doesn't exist
     @device = @client.devices.find(params[:device_id])
     @reading = @device.readings.create!(reading_params)
