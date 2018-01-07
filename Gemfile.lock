@@ -68,7 +68,7 @@ GEM
     method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
-    minitest (5.10.3)
+    minitest (5.11.1)
     nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -108,8 +108,8 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.0.1)
-    rspec-core (3.7.0)
+    redis (3.3.5)
+    rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -161,7 +161,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rack-cors
   rails (~> 5.1.4)
-  redis
+  redis (~> 3.0)
   rspec-rails
   shoulda-matchers
   spring
@@ -169,4 +169,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.16.0
+   1.15.4

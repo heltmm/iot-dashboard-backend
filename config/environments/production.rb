@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Set heruku web socket url
+  config.web_socket_server_url = "wss://https://weather-station-.herokuapp.com/cable"
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
