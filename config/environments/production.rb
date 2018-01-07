@@ -4,6 +4,9 @@ Rails.application.configure do
   # Set heruku web socket url
   config.web_socket_server_url = "wss://https://weather-station-.herokuapp.com/cable"
 
+  # Set Websocket request Origin
+  config.action_cable.allowed_request_origins = ['https://iot-dash-board.herokuapp.com/', 'http://iot-dash-board.herokuapp.com/']
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
