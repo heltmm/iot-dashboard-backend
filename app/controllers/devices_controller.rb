@@ -15,7 +15,9 @@ class DevicesController < ApplicationController
 
   # POST /devices
   def create
-    @device = Device.new(device_params)
+    binding.pry
+
+    @device = Client.last.devices.new(device_params)
 
     if @device.save
       render json: @device, status: :created, location: @device
