@@ -15,8 +15,6 @@ class DevicesController < ApplicationController
 
   # POST /devices
   def create
-    binding.pry
-
     @device = Client.last.devices.new(device_params)
 
     if @device.save
